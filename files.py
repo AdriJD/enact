@@ -136,7 +136,7 @@ def read_tconst_ascii(fname, mode="auto"):
 	dets, taus = [], []
 	with open(fname, "r") as f:
 		for line in f:
-			if line.startswith('#'): continue
+			if not line[0].isnumeric(): continue
 			toks = line.split()
 			if len(toks) == 0: continue
 			if mode == "tau" or mode == "auto" and (len(toks) == 2 or len(toks) == 3):
